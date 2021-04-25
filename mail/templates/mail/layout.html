@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Mail{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'mail/styles.css' %}">
+        <link rel="shortcut icon" href="{% static 'mail/favicon.ico' %}" />
+        <script src="{% static 'mail/inbox.js' %}"></script>
+    </head>
+    <body>
+        <div class='row'>
+            <div class="sidebar col-lg-2">
+                <div id='sticky-sidebar'>
+                    <div>
+                        <a href="{% url 'index' %}">
+                        <img src='https://cdn.iconscout.com/icon/free/png-256/mail-e-mail-email-send-message-47385.png' id='logo'>
+                        </a>
+                    </div>
+                    <br>
+                    <button class="btn btn-sm btn-outline-primary btn-sidebar" id="inbox">Inbox</button>
+                    <button class="btn btn-sm btn-outline-primary btn-sidebar" id="compose">Compose</button>
+                    <button class="btn btn-sm btn-outline-primary btn-sidebar" id="sent">Sent</button>
+                    <button class="btn btn-sm btn-outline-primary btn-sidebar" id="archived">Archived</button>
+                    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+                </div>
+            </div>
+            <div class="main col">
+                <div class="container">
+                    <h2>{{ request.user.email }}</h2>
+                    <hr>
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

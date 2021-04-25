@@ -1,0 +1,167 @@
+/*/////////////////////////////////////////////////*/
+/*                  General styling                */
+/*/////////////////////////////////////////////////*/
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 99%;
+    overscroll-behavior: none;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.main {
+    padding: 10px;
+    width: 100%;
+}
+
+/*/////////////////////////////////////////////////*/
+/*                     Sidebar                     */
+/*/////////////////////////////////////////////////*/
+.sidebar {
+    height: 100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+/*------------  Make sure sidebar fixed -------------*/
+.sidebar #sticky-sidebar {
+    position:fixed;
+    width: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-right: 20px;
+    border-right:1px solid gray;
+}
+
+.btn {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 0px 25px 25px 0;
+    color: gray;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: rgb(235, 235, 235)!important;
+    border-radius: 1px solid gray!important;
+    color: gray!important;
+}
+
+/*/////////////////////////////////////////////////*/
+/*                   Main Body                     */
+/*/////////////////////////////////////////////////*/
+.container {
+    margin-left: 0px;
+    width: 100%;
+}
+
+.email{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.email:hover{
+    box-shadow: inset 0.1em 0.1em black;
+}
+
+.to-from-email {
+    width: 200px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.email-timestamp{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.email-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*/////////////////////////////////////////////////*/
+/*                Compose New Email                */
+/*/////////////////////////////////////////////////*/
+
+textarea {
+    min-height: 400px;
+}
+
+.email {
+    padding: 5px;
+} 
+
+
+#indiv-body {
+    border-top: 1px solid black;
+}
+
+/*/////////////////////////////////////////////////*/
+/*            Login.html and Register.html         */
+/*/////////////////////////////////////////////////*/
+#page_header {
+    display: block;
+    text-align: center;
+    color: grey;
+}
+
+/* Form */
+#login_form {
+    width: 450px;
+    margin: 100px auto;
+    padding: 10px;
+    border: 1px solid rgb(167, 167, 167);
+    padding: 40px 50px 100px;
+    border-radius: 10px;
+}
+
+/* Logo */
+#logo {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Individual input fields */
+.form-control {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Submit button */
+#submit_login {
+    padding: 5px 20px;
+    font-size: 14px;
+    display: block;
+    margin-left: auto;
+    height: 40px;
+}
+
+/* Error message */
+.message {
+    color:red;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Line up login/ register message with submit button */
+#inline {
+    display: flex;
+    vertical-align: middle;
+}

@@ -1,0 +1,35 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+<form action="{% url 'register' %}" method="post" id='login_form'>
+    <img src='https://cdn.iconscout.com/icon/free/png-256/mail-e-mail-email-send-message-47385.png' id='logo'>
+    <br>
+    <h3 id='page_header'>REGISTER</h3>
+    {% if message %}
+        <div class='message'>{{ message }}</div>
+    {% endif %}
+    {% csrf_token %}
+    <div class="form-group">
+        <b>Email: </b>
+        <input class="form-control" type="email" name="email" placeholder="Email Address">
+    </div>
+    <div class="form-group">
+        <b>Password: </b>
+        <input class="form-control" type="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <b>Confirm Password: </b>
+        <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+    </div>
+    <br>
+    <div id='inline'>
+        <p>Already have an account? <br>
+        <a href="{% url 'login' %}">Log In here.</a></p>
+        <input id='submit_login' type="submit" value="Register">
+    </div>
+</form>
+
+    
+
+{% endblock %}
