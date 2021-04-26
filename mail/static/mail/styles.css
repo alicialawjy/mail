@@ -8,34 +8,41 @@ body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .main {
-    padding: 10px;
+    padding: 25px 0px;
     width: 100%;
+    margin-left: 0px;
+    display: flex;
 }
 
+.row{
+    display: grid;
+    grid-template-columns: 300px auto;
+}
 /*/////////////////////////////////////////////////*/
 /*                     Sidebar                     */
 /*/////////////////////////////////////////////////*/
 .sidebar {
     height: 100vh;
+    width: 100%;
     font-family:Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     text-align: right;
+    margin: 0px;
 }
 
 /*------------  Make sure sidebar fixed -------------*/
-.sidebar #sticky-sidebar {
+#sticky-sidebar {
     position:fixed;
-    width: 16%;
+    width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-right: 20px;
+    padding: 15px;
     border-right:1px solid gray;
 }
 
-.btn {
+.sidebar .btn {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
@@ -54,27 +61,30 @@ body {
     color: gray!important;
 }
 
-/*/////////////////////////////////////////////////*/
-/*                   Main Body                     */
-/*/////////////////////////////////////////////////*/
-.container {
-    margin-left: 0px;
-    width: 100%;
+#user-email{
+    text-align: center;
+    margin: 15px;
+    color: gray;
 }
 
+/*/////////////////////////////////////////////////*/
+/*            INBOX/SENT/ARCHIVED MAILBOX          */
+/*/////////////////////////////////////////////////*/
+/*Individual email divs*/
 .email{
-    display: flex;
-    flex-direction: row;
-    padding: 5px 10px;
+    display: grid;
+    grid-template-columns: 180px auto 200px;
+    padding: 8px 10px;
     font-size: 14px;
+    height: 40px;
 }
 
 .email:hover{
     box-shadow: inset 0.1em 0.1em black;
 }
 
+/*Components within individual email divs*/
 .to-from-email {
-    width: 200px;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -93,20 +103,32 @@ body {
 }
 
 /*/////////////////////////////////////////////////*/
-/*                Compose New Email                */
+/*              INDIVIDUAL EMAIL VIEW              */
 /*/////////////////////////////////////////////////*/
-
-textarea {
-    min-height: 400px;
+#indiv-view .btn{
+    padding: 5px 20px;
+    border: none;
+    border-radius: 20px;
+    color: gray;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-.email {
-    padding: 5px;
-} 
-
+#button-pane{
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-top: 10px;
+}
 
 #indiv-body {
-    border-top: 1px solid black;
+    padding: 10px;
+}
+
+/*/////////////////////////////////////////////////*/
+/*                Compose New Email                */
+/*/////////////////////////////////////////////////*/
+textarea {
+    min-height: 400px;
 }
 
 /*/////////////////////////////////////////////////*/
@@ -120,8 +142,13 @@ textarea {
 
 /* Form */
 #login_form {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
     width: 450px;
-    margin: 100px auto;
     padding: 10px;
     border: 1px solid rgb(167, 167, 167);
     padding: 40px 50px 100px;

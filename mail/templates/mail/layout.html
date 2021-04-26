@@ -6,12 +6,15 @@
         <title>{% block title %}Mail{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'mail/styles.css' %}">
-        <link rel="shortcut icon" href="{% static 'mail/favicon.ico' %}" />
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'mail/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'mail/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'mail/favicon-16x16.png' %}">
         <script src="{% static 'mail/inbox.js' %}"></script>
     </head>
     <body>
         <div class='row'>
-            <div class="sidebar col-lg-2">
+            <div class="sidebar">
+                {% if user.is_authenticated %}
                 <div id='sticky-sidebar'>
                     <div>
                         <a href="{% url 'index' %}">
@@ -19,17 +22,18 @@
                         </a>
                     </div>
                     <br>
+                    <h4 id='user-email'>{{ request.user.email }}</h4>
                     <button class="btn btn-sm btn-outline-primary btn-sidebar" id="inbox">Inbox</button>
                     <button class="btn btn-sm btn-outline-primary btn-sidebar" id="compose">Compose</button>
                     <button class="btn btn-sm btn-outline-primary btn-sidebar" id="sent">Sent</button>
                     <button class="btn btn-sm btn-outline-primary btn-sidebar" id="archived">Archived</button>
                     <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
                 </div>
+                {% endif %}
             </div>
-            <div class="main col">
-                <div class="container">
-                    <h2>{{ request.user.email }}</h2>
-                    <hr>
+            
+            <div class="main">
+                <div class="container-fluid">
                     {% block body %}
                     {% endblock %}
                 </div>
